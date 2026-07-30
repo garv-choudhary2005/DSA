@@ -1,20 +1,24 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        //garv 
         int n=nums.size();
         int i=0;
-        int j=1;
-        while(j<n){
-            if(nums[i]!=nums[j]){
-                i++;
-                nums[i]=nums[j];
-
+        int k = 1;
+        int j =1;
+        while (j<n){
+            if (nums[j]==nums[j-1]){
+                j++;
+                continue;
             }
-            j++;
+            else{
+                nums[i+1]=nums[j];
+                i++;
+                j++;
+                k++;
+            }
         }
-        return i+1;
-
+        return k;
+        
         
     }
 };
