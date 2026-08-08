@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void getperm(vector<int>& nums,int i , vector<vector<int>> &ans){
+        if (i==nums.size()){
+            ans.push_back(nums);
+            return;
+        }
+        for (int j =i;j<nums.size();j++){
+            swap(nums[i],nums[j]);
+            getperm(nums,i+1,ans);
+            swap(nums[i],nums[j]);
+
+        }
+    }
+    
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        getperm(nums,0,ans);
+        return ans ;
+        
+        
+        
+    }
+};
